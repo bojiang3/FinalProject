@@ -2,8 +2,11 @@ package com.example.finalproject2;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -33,6 +36,9 @@ import android.os.Bundle;
 import android.util.Pair;
 import android.view.Gravity;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -66,7 +72,24 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
 
+        //Bojiang 12/1 starts: setup button
+        final Button button = findViewById(R.id.toPrint);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String url = "https://papercut.ics.illinois.edu:8443/user";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
+        //Bojiang 12/1 ends.
+
+
+
     }
+
+
+
 
 
     /**
@@ -126,6 +149,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
         //Bojiang 11/30 ends. Multi-snippet infowindow resolved.
+
+        //Bojiang 12/1 starts. Create button and set onclicklistener.
+
 
     }
 
