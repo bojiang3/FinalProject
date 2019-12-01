@@ -1,5 +1,8 @@
 package com.example.finalproject2;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.app.Activity;
@@ -74,7 +77,7 @@ import android.widget.Toast;
 
 
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, ActivityCompat.OnRequestPermissionsResultCallback {
     private GoogleMap map;
 
     //Jenny 1127 22:10 start:
@@ -88,7 +91,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private List<Marker> markers = new ArrayList();
     //Jenny 1127 22:10 end.
 
-
+    private Location currentLocation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,11 +112,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 startActivity(intent);
             }
         });
-
         final EditText inputLocation = findViewById(R.id.inputLocation);
         String input = inputLocation.getText().toString();
 
         //Bojiang 12/1 ends.
+
+
 
 
 
@@ -182,6 +186,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //Bojiang 12/1 ends.
 
+        //Bojiang 12/1 afternoon starts.
         boolean success = map.setMapStyle(new MapStyleOptions(getResources()
                 .getString(R.string.style_json)));
 
@@ -189,8 +194,54 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Log.e("1", "Style parsing failed.");
         }
 
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) ==
+                PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) ==
+                        PackageManager.PERMISSION_GRANTED) {
+            googleMap.setMyLocationEnabled(true);
+            googleMap.getUiSettings().setMyLocationButtonEnabled(true);
+        } else {
+            Toast.makeText(this, R.string.title_activity_maps, Toast.LENGTH_LONG).show();
+        }
+
         map.moveCamera(CameraUpdateFactory.zoomTo(15));
-        map.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(40.109547, -88.227153)));
+
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            map.setMyLocationEnabled(true);
+
+            //Reference: StackOverFlow: https://stackoverflow.com/questions/14502102/zoom-on-current-user-location-displayed/14511032#14511032
+            LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+            Location myLocation = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+
+
+            if (myLocation == null) {
+                Criteria criteria = new Criteria();
+                criteria.setAccuracy(Criteria.ACCURACY_COARSE);
+
+                String provider = lm.getBestProvider(criteria, true);
+
+                myLocation = lm.getLastKnownLocation(provider);
+            }
+            lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+
+            currentLocation = myLocation;
+        }
+
+
+
+        if (currentLocation != null) {
+            LatLng tmp = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
+
+            map.moveCamera(CameraUpdateFactory.newLatLng(tmp));
+        } else {
+            map.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(40.103039, -88.225101)));
+        }
+
+
+
+        //Bojiang 12/1 afternoon ends. Enable getting current location function.
 
     }
 
@@ -227,5 +278,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     //Jenny 1127 22:00 end.
 
+
+
+
+    //Bojiang used the reference from Google Developer webpage: https://developers.google.com/maps/documentation/android-sdk/location
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults){
+        if (requestCode == 1) {
+            if (permissions.length == 1 &&
+                    permissions[0] == Manifest.permission.ACCESS_FINE_LOCATION &&
+                    grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                map.setMyLocationEnabled(true);
+            } else {
+                // Permission was denied. Display an error message.
+            }
+        }
+        map.setMyLocationEnabled(true);
+    }
 
 }
