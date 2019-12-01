@@ -39,6 +39,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -46,6 +47,21 @@ import com.google.android.gms.maps.GoogleMap.InfoWindowAdapter;
 
 import org.w3c.dom.Text;
 //1130 21:00 end.
+
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.UiSettings;
+
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.Toast;
+
+
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     private GoogleMap map;
@@ -82,6 +98,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 startActivity(intent);
             }
         });
+
+        final EditText inputLocation = findViewById(R.id.inputLocation);
+        String input = inputLocation.getText().toString();
+
         //Bojiang 12/1 ends.
 
 
