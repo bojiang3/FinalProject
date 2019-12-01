@@ -13,6 +13,8 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -138,12 +140,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         placeMarker();
         //Jenny 1127 22:00 end.
 
-        //Jenny 1127 16:00 start:
-        // Add a marker to each of the printers on UIUC campus.
-        // "ACES AESB"
-        LatLng ACES_AESB = new LatLng(40.103612, -88.226026);
-        map.moveCamera(CameraUpdateFactory.newLatLng(ACES_AESB));
-        //Jenny 1127 16:00 end.
 
         //Bojiang 11/30 start:
         // Reference: Stackoverflow
@@ -192,8 +188,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (!success) {
             Log.e("1", "Style parsing failed.");
         }
-        // Position the map's camera near Sydney, Australia.
-        map.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(40.103039, -88.225101)));
+
+        map.moveCamera(CameraUpdateFactory.zoomTo(15));
+        map.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(40.109547, -88.227153)));
 
     }
 
@@ -224,7 +221,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             //Add each marker to "markers", the list of markers.
             markers.add(marker);
-            marker.showInfoWindow();
+
         }
     }
 
