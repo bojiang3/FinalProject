@@ -3,9 +3,14 @@ package com.example.finalproject2;
 import androidx.fragment.app.FragmentActivity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
@@ -14,7 +19,9 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 //Jenny 1127 22:10 start:
@@ -33,6 +40,7 @@ import android.os.Bundle;
 //Jenny 1128 end.
 
 //1130 21:00 start:
+import android.util.Log;
 import android.util.Pair;
 import android.view.Gravity;
 import android.view.View;
@@ -60,6 +68,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.Toast;
+
 
 
 
@@ -170,8 +179,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         });
         //Bojiang 11/30 ends. Multi-snippet infowindow resolved.
 
-        //Bojiang 12/1 starts. Create button and set onclicklistener.
+        //Bojiang 12/1 2:23 am starts. Create button and set onclicklistener.
+        map.getUiSettings().setZoomControlsEnabled(true);
+        map.getUiSettings().setAllGesturesEnabled(true);
+        map.getUiSettings().setCompassEnabled(true);
 
+        //Bojiang 12/1 ends.
+
+        boolean success = map.setMapStyle(new MapStyleOptions(getResources()
+                .getString(R.string.style_json)));
+
+        if (!success) {
+            Log.e("1", "Style parsing failed.");
+        }
+        // Position the map's camera near Sydney, Australia.
+        map.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(40.103039, -88.225101)));
 
     }
 
