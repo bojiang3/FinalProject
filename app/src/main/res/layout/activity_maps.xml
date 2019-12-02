@@ -26,4 +26,14 @@
         android:padding="10dp"
         android:layout_marginTop="20dp"
         android:paddingLeft="10dp"/>
+
+    <ImageButton
+        android:id="@+id/infoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:cropToPadding="false"
+        android:paddingStart="10dp"
+        android:scaleType="fitXY"
+        android:src="@android:drawable/ic_menu_info_details" />
 </fragment>

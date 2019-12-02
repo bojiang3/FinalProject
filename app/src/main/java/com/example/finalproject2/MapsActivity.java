@@ -48,11 +48,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -103,8 +105,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
         //Bojiang 12/1 starts: setup button
-        final Button button = findViewById(R.id.toPrint);
-        button.setOnClickListener(new View.OnClickListener() {
+        final Button toPrint = findViewById(R.id.toPrint);
+        toPrint.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String url = "https://papercut.ics.illinois.edu:8443/user";
                 Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -117,8 +119,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //Bojiang 12/1 ends.
 
+        final ImageButton infoButton = findViewById(R.id.infoButton);
+        infoButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
 
-
+                setContentView(R.layout.authorinfo);
+            }
+        });
 
 
     }
