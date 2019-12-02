@@ -93,7 +93,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private List<Marker> markers = new ArrayList();
     //Jenny 1127 22:10 end.
 
+    /** A class variable to store current location. If GPS access is denied, this variable will keep null. */
     private Location currentLocation;
+    //Bojiang 12/1 ends.
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -131,17 +134,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
 
-
-
-
     /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
+     *
+     * @param googleMap the map.
+     * Initialize the map, set up the info-window, request the permission for GPS.
+     * If GPS permission is not granted, the app will take a point at Illini Union as default center for the first time created.
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -253,7 +250,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
 
-
+    /**
+     * Place the markers for all building with printers. Also add the markers to the list for further uses.
+     */
     //Jenny 1127 22:00 start:
     public void placeMarker() { // Suppose position is a LatLng variable
 
@@ -267,7 +266,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             LatLng printerLocation = entry.getValue().first; //location of the printer
             String printerInfo = entry.getValue().second;
 
-            //Add a marker to the location of each printer, with title being the building name.
+            //Add a marker to the location of each printer, with title being the building name, and the snippets in info-windows.
             options = new MarkerOptions().position(printerLocation)
                     .title(printerLocationName)
                     .snippet(printerInfo);
@@ -286,9 +285,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     //Jenny 1127 22:00 end.
 
 
-
-
-    //Bojiang used the reference from Google Developer webpage: https://developers.google.com/maps/documentation/android-sdk/location
+    /**
+     * helper function to detect if GPS request is granted.
+     * @param requestCode int 1.
+     * @param permissions permission messages.
+     * @param grantResults granted results integers.
+     */
+    //Bojiang: used the reference from Google Developer webpage: https://developers.google.com/maps/documentation/android-sdk/location
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults){
         if (requestCode == 1) {
             if (permissions.length == 1 &&
