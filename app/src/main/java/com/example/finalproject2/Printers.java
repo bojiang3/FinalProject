@@ -24,6 +24,7 @@ public class Printers {
      * Example1: EH = the LatLng variable (location) of Engineering Hall; EHMarker = the Marker Option variable of Engineering Hall.
      * Example2: IlliniUnion = the LatLng variable (location) of Illini Union; IlliniUnionMarker = the Marker Option variable of Illini Union.
      * Finished by Bojiang Li on 11/27/2019.
+     * Updated by 12/2/2019.
      *
      */
 
@@ -38,8 +39,6 @@ public class Printers {
 
 
     public static void addPrintersToList() {
-
-
 
         Pair<LatLng, String> ACES = new Pair<>(new LatLng(40.103039, -88.225101),
                 " aces-print\\abe-220hp3015\n" +
@@ -111,7 +110,9 @@ public class Printers {
 
         Pair<LatLng, String> DCL = new Pair<>(new LatLng(40.113410, -88.226610), "\n" +
                 " engr-print-02\\dcl-l426-color1\n" +
-                " engr-print-02\\dcl-l426-pool (virtual)\n");
+                " engr-print-02\\dcl-l426-pool (virtual)\n" +
+                " ics-print1\\dcl-atrium-bw\n" +
+                " ics-print1\\dcl-atrium-color\n");
         printerLocationMap.put("Digital Computer Laboratory", DCL);
 
         Pair<LatLng, String> Grainger = new Pair<>(new LatLng(40.112746, -88.226864), "\n" +

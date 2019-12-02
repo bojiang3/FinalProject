@@ -181,7 +181,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 return info;
             }
         });
-        //Bojiang 11/30 ends. Multi-snippet infowindow resolved.
+        //Bojiang 11/30 ends. Multi-snippet info-window resolved.
 
         //Bojiang 12/1 2:23 am starts. Create button and set onclicklistener.
         map.getUiSettings().setZoomControlsEnabled(true);
@@ -208,7 +208,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Toast.makeText(this, R.string.title_activity_maps, Toast.LENGTH_LONG).show();
         }
 
-        map.moveCamera(CameraUpdateFactory.zoomTo(15));
+
 
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -217,30 +217,37 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             //Reference: StackOverFlow: https://stackoverflow.com/questions/14502102/zoom-on-current-user-location-displayed/14511032#14511032
             LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-            Location myLocation = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            Location setLocation = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
-
-            if (myLocation == null) {
+            if (setLocation == null) {
                 Criteria criteria = new Criteria();
                 criteria.setAccuracy(Criteria.ACCURACY_COARSE);
 
                 String provider = lm.getBestProvider(criteria, true);
 
-                myLocation = lm.getLastKnownLocation(provider);
+                setLocation = lm.getLastKnownLocation(provider);
             }
             lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
-            currentLocation = myLocation;
+            currentLocation = setLocation;
         }
 
 
-
         if (currentLocation != null) {
-            LatLng tmp = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
 
-            map.moveCamera(CameraUpdateFactory.newLatLng(tmp));
+            CameraPosition cameraPosition1 = new CameraPosition.Builder().target(
+                    new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude())).zoom(16).build();
+
+            map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition1));
+
+
         } else {
-            map.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(40.103039, -88.225101)));
+
+
+            CameraPosition cameraPosition2 = new CameraPosition.Builder().target(
+                    new LatLng(40.109464, -88.227180)).zoom(15).build();
+
+            map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition2));
         }
 
 
@@ -269,11 +276,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             //Add a marker to the location of each printer, with title being the building name, and the snippets in info-windows.
             options = new MarkerOptions().position(printerLocation)
                     .title(printerLocationName)
-                    .snippet(printerInfo);
+                    .snippet(printerInfo).alpha(0.6f);
             marker = map.addMarker(options);
 
             //Set the default color of the marker to be blue.
-            BitmapDescriptor defaultColor = BitmapDescriptorFactory.defaultMarker(Printers.defaultMarkerColor);
+            BitmapDescriptor defaultColor = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE);
             marker.setIcon(defaultColor);
 
             //Add each marker to "markers", the list of markers.
