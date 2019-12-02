@@ -91,5 +91,56 @@ public class Printers {
                 " engr-print-01\\everitt-2240-color\n" +
                 " engr-print-01\\everitt-receiving-copier(Everitt 0321)\n");
         printerLocationMap.put("Everitt Laboratory", Everitt);
+
+        Pair<LatLng, String> Loomis = new Pair<>(new LatLng(40.111223, -88.223324), "\n" +
+                " engr-print-02\\lms-271-bwd1\n" +
+                " engr-print-02\\lms-279-bwd\n" +
+                " engr-print-01\\lms-328-mfp\n" +
+                " engr-print-01\\lms320-mfc-printer\n");
+        printerLocationMap.put("Loomis Laboratory Of Physics", Loomis);
+
+        Pair<LatLng, String> Siebel = new Pair<>(new LatLng(40.114041, -88.224894), "\n" +
+                " engr-print-01\\engrit-siebl-printer (ENGRIT)\n" +
+                " engr-print-02\\siebl-0200-pool (virtual)\n" +
+                " engr-print-01\\Siebl-2203-printer\n" +
+                " engr-print-01\\Siebl-3203-printer\n" +
+                " engr-print-01\\siebl-3323-printer\n" +
+                " engr-print-01\\siebl-4203-printer\n" +
+                " engr-print-01\\Siebl-4323-printer\n");
+        printerLocationMap.put("Thomas M. Siebel Center for Computer Science", Siebel);
+
+        Pair<LatLng, String> DCL = new Pair<>(new LatLng(40.113410, -88.226610), "\n" +
+                " engr-print-02\\dcl-l426-color1\n" +
+                " engr-print-02\\dcl-l426-pool (virtual)\n");
+        printerLocationMap.put("Digital Computer Laboratory", DCL);
+
+        Pair<LatLng, String> Grainger = new Pair<>(new LatLng(40.112746, -88.226864), "\n" +
+                " engr-print-02\\gelib-4c-bwd (virtual)\n" +
+                " engr-print-02\\gelib-4c-bwd2\n" +
+                " engr-print-02\\gelib-4e-bwd1\n" +
+                " engr-print-02\\gelib-4th-color1\n");
+        printerLocationMap.put("Grainger Engineering Library", Grainger);
+
+        Pair<LatLng, String> MEL = new Pair<>(new LatLng(40.112004, -88.226157), "\n" +
+                " engr-print-02\\mel-1001-bwd1\n" +
+                " engr-print-02\\mel-1009-bwd1\n" +
+                " engr-print-02\\mel-1009-color1\n");
+        printerLocationMap.put("Mechanical Engineering Laboratory", MEL);
+
+        Pair<LatLng, String> NCEB = new Pair<>(new LatLng(40.114272, -88.226003), "\n" +
+                " engr-print-02\\nceb-2nd-bwd1 (Yeh Center)\n");
+        printerLocationMap.put("Nathan Newmark Civil Engineering Laboratory Yeh Center", NCEB);
+
+        Pair<LatLng, String> Talbot = new Pair<>(new LatLng(40.112041, -88.228316), "\n" +
+                " engr-print-02\\tl-131-bwd1\n" +
+                " engr-print-02\\tl-131-bwd2\n" +
+                " engr-print-02\\tl-321d-bwd1\n" +
+                " engr-print-02\\tl-321d-color1\n");
+        printerLocationMap.put("Talbot Laboratory", Talbot);
+
+        Pair<LatLng, String> BNAACC = new Pair<>(new LatLng(40.111223, -88.223324), "\n" +
+                " ics-print1\\bnaacc-123-bw\n" +
+                " ics-print1\\bnaacc-123-color\n");
+        printerLocationMap.put("Bruce D. Nesbitt African American Cultural Center", BNAACC);
     }
 }
