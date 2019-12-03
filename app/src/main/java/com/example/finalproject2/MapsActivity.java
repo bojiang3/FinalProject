@@ -133,7 +133,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         });
 
 
-        final Button NearestPrinter = findViewById(R.id.);
+        final Button NearestPrinter = findViewById(R.id.findNearestPrinter);
         NearestPrinter.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
