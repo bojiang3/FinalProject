@@ -17,6 +17,15 @@
         android:padding="10dp"
         android:layout_marginTop="20dp"
         android:paddingRight="10dp"/>
+    <Button
+        android:id="@+id/findNearestPrinter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Printing Now!"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:paddingRight="10dp"/>
     <EditText
         android:id="@+id/inputLocation"
         android:text="Find a location"

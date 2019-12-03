@@ -76,6 +76,8 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
+import com.google.maps.android.SphericalUtil;
+
 
 
 
@@ -84,17 +86,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     //Jenny 1127 22:10 start:
     /** Create a MarkerOptions object to specify where we want the marker. */
-    private MarkerOptions options;
+    public MarkerOptions options;
 
     /** Add it to the map - Google Maps gives us the created Marker. */
     private Marker marker;
 
-    /** The list of Markers that mark the printers. */
-    private List<Marker> markers = new ArrayList();
+    /** The HashMap of Markers that mark the printers. */
+    private Map<String, Marker> markers = new HashMap<>();
     //Jenny 1127 22:10 end.
 
     /** A class variable to store current location. If GPS access is denied, this variable will keep null. */
-    private Location currentLocation;
+    public static Location currentLocation;
     //Bojiang 12/1 ends.
 
     @Override
@@ -127,6 +129,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onClick(View v) {
 
                 setContentView(R.layout.authorinfo);
+            }
+        });
+
+
+        final Button NearestPrinter = findViewById(R.id.);
+        NearestPrinter.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                LatLng tmp = Printers.printerLocationMap.get(ButtonActivity.getNearestPrinter()).first;
+                CameraPosition cameraPositionForNearestPrinter = new CameraPosition.Builder().
+                        target(tmp).zoom(15).build();
+
+                map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPositionForNearestPrinter));
+
+                BitmapDescriptor colorWhenSelected = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE);
+                markers.get(ButtonActivity.getNearestPrinter()).setIcon(colorWhenSelected);
             }
         });
 
@@ -291,8 +309,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             BitmapDescriptor defaultColor = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE);
             marker.setIcon(defaultColor);
 
-            //Add each marker to "markers", the list of markers.
-            markers.add(marker);
+            //Add each marker to "markers", the HashMap of markers, which stores String as keys and markers as values.
+            markers.put(printerLocationName, marker);
 
         }
     }
