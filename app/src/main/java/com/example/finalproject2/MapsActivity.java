@@ -131,6 +131,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         });
 
 
+
+
     }
 
 
@@ -250,9 +252,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition2));
         }
 
-
-
         //Bojiang 12/1 afternoon ends. Enable getting current location function.
+
+        //Toast when open the app.
+        CharSequence text = "Hello";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(getApplicationContext(), text, duration);
+        toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 1, 1);
+        toast.show();
 
     }
 

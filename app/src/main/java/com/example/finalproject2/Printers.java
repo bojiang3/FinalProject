@@ -46,8 +46,7 @@ public class Printers {
                 " aces-print\\ACF-BW (virtual)\n" +
                 "ACES Library - Lower Level - Academic Computing Facility\n" +
                 " aces-print\\ACF-COLOR (virtual)\n" +
-                "ACES Library - Lower Level - Academic Computing Facility\n" +
-                "<a href=\"http://abcd.efg.com\" target=\"_blank\">http://abcd.efg.com</a>");
+                "ACES Library - Lower Level - Academic Computing Facility\n");
         printerLocationMap.put("ACES Library", ACES);
 
         Pair<LatLng, String> EB = new Pair<>(new LatLng(40.102113, -88.229611), "\n" +
@@ -139,9 +138,58 @@ public class Printers {
                 " engr-print-02\\tl-321d-color1\n");
         printerLocationMap.put("Talbot Laboratory", Talbot);
 
-        Pair<LatLng, String> BNAACC = new Pair<>(new LatLng(40.111223, -88.223324), "\n" +
+        Pair<LatLng, String> BNAACC = new Pair<>(new LatLng(40.106446, -88.224761), "\n" +
                 " ics-print1\\bnaacc-123-bw\n" +
                 " ics-print1\\bnaacc-123-color\n");
         printerLocationMap.put("Bruce D. Nesbitt African American Cultural Center", BNAACC);
+
+        Pair<LatLng, String> English = new Pair<>(new LatLng(40.107831, -88.228184), "\n" +
+                " ics-print1\\eng-8-bw (virtual)\n" +
+                " ics-print1\\eng-8-color (virtual)\n" +
+                " Post Printer Available");
+        printerLocationMap.put("English Building", English);
+
+        Pair<LatLng, String> LER = new Pair<>(new LatLng(40.105870, -88.231575), "\n" +
+                " ics-print1\\ler-6-bw (basement)\n" +
+                " ics-print1\\ler-6-color (basement)\n");
+        printerLocationMap.put("School of Labor & Employment Relations", LER);
+
+        Pair<LatLng, String> IlliniHall = new Pair<>(new LatLng(40.109768, -88.229276), "\n" +
+                " ics-print1\\ih-23-bw\n" +
+                " ics-print1\\ih-23-color\n");
+        printerLocationMap.put("Illini Hall", IlliniHall);
+
+        Pair<LatLng, String> Nevada = new Pair<>(new LatLng(40.105668, -88.224465), "\n" +
+                " ics-print1\\nev-121-bw\n" +
+                " ics-print1\\nev-121-color\n");
+        printerLocationMap.put("Nevada Building Computer Lab", Nevada);
+
+        Pair<LatLng, String> Oregon = new Pair<>(new LatLng(40.106999, -88.219508), "\n" +
+                " ics-print1\\or-104-bw\n" +
+                " ics-print1\\or-104-color\n");
+        printerLocationMap.put("Oregon Building Computer Lab", Oregon);
+
+        Pair<LatLng, String> UniversityHighSchool = new Pair<>(new LatLng(40.113393, -88.225205), "\n" +
+                " ics-print1\\uhs-116\n" +
+                " ics-print1\\uhs-201-bw\n" +
+                "ics-print1\\uhs-stairwell");
+        printerLocationMap.put("University Laboratory High School",UniversityHighSchool);
+
+        Pair<LatLng, String> IlliniUnion = new Pair<>(new LatLng(40.109464, -88.227180), "\n" +
+                " ics-print1\\un-040-bw (virtual)\n" +
+                " ics-print1\\un-040-color (virtual)\n");
+        printerLocationMap.put("Illini Union", IlliniUnion);
+
+        Pair<LatLng, String> WohlersHall = new Pair<>(new LatLng(40.103889, -88.229857), "\n" +
+                " ics-print1\\wh-70-bw (virtual)\n" +
+                " ics-print1\\wh-70-color (virtual)\n");
+        printerLocationMap.put("Wohlers Hall", WohlersHall);
+
+        Pair<LatLng, String> AllenHall = new Pair<>(new LatLng(40.104378, -88.220873), "\n" +
+                " ics-print2\\aln-52-bw\n" +
+                " ics-print2\\aln-52-color\n" +
+                " ics-print2\\aln-c144-bw\n" +
+                " ics-print2\\aln-c144-color\n");
+        printerLocationMap.put("Allen Hall and Unit One LLC", AllenHall);
     }
 }
