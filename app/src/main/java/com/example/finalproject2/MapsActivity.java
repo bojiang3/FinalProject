@@ -95,7 +95,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Map<String, Marker> markers = new HashMap<>();
     //Jenny 1127 22:10 end.
 
-    /** A class variable to store current location. If GPS access is denied, this variable will keep null. */
+    /** An variable to store current location. If GPS access is denied, this variable will keep null. */
     public Location currentLocation;
     //Bojiang 12/1 ends.
 
@@ -147,9 +147,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 markers.get(getNearestPrinter()).setIcon(colorWhenSelected);
             }
         });
-
-
-
 
     }
 
@@ -273,8 +270,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //Bojiang 12/1 afternoon ends. Enable getting current location function.
 
         //Toast when open the app.
-        CharSequence text = "Hello";
-        int duration = Toast.LENGTH_SHORT;
+        CharSequence text = "Welcome to Illini Printer Map!";
+        int duration = Toast.LENGTH_LONG;
 
         Toast toast = Toast.makeText(getApplicationContext(), text, duration);
         toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 1, 1);
