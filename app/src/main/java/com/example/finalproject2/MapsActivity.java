@@ -96,7 +96,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     //Jenny 1127 22:10 end.
 
     /** A class variable to store current location. If GPS access is denied, this variable will keep null. */
-    public static Location currentLocation;
+    public Location currentLocation;
     //Bojiang 12/1 ends.
 
     @Override
@@ -137,14 +137,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         NearestPrinter.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                LatLng tmp = Printers.printerLocationMap.get(ButtonActivity.getNearestPrinter()).first;
+                LatLng tmp = Printers.printerLocationMap.get(getNearestPrinter()).first;
                 CameraPosition cameraPositionForNearestPrinter = new CameraPosition.Builder().
-                        target(tmp).zoom(15).build();
+                        target(tmp).zoom(17).build();
 
                 map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPositionForNearestPrinter));
 
                 BitmapDescriptor colorWhenSelected = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE);
-                markers.get(ButtonActivity.getNearestPrinter()).setIcon(colorWhenSelected);
+                markers.get(getNearestPrinter()).setIcon(colorWhenSelected);
             }
         });
 
@@ -336,6 +336,30 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         }
         map.setMyLocationEnabled(true);
+    }
+
+    /**
+     * Find the nearest printer.
+     * @return the full name of the nearest printer, as a string.
+     * Finished by Bojiang on 12/2.
+     */
+    public String getNearestPrinter() {
+        double minDistance = 1000.00;
+        String tmpPrinter = "";
+        for (Map.Entry<String, Pair<LatLng, String>> entry : Printers.printerLocationMap.entrySet()) {
+
+
+            String printerLocationName = entry.getKey();
+            LatLng printerLocation = entry.getValue().first;
+            LatLng tmpLocation = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
+            double tmpDistance = com.google.maps.android.SphericalUtil.computeDistanceBetween(tmpLocation, printerLocation);
+
+            if (tmpDistance < minDistance) {
+                minDistance = tmpDistance;
+                tmpPrinter = printerLocationName;
+            }
+        }
+        return tmpPrinter;
     }
 
 }
