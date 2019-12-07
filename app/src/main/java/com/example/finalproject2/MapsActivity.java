@@ -84,7 +84,6 @@ import com.google.maps.android.SphericalUtil;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, ActivityCompat.OnRequestPermissionsResultCallback {
     private GoogleMap map;
 
-    //Jenny 1127 22:10 start:
     /** Create a MarkerOptions object to specify where we want the marker. */
     public MarkerOptions options;
 
@@ -93,7 +92,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     /** The HashMap of Markers that mark the printers. */
     private Map<String, Marker> markers = new HashMap<>();
-    //Jenny 1127 22:10 end.
 
     /** An variable to store current location. If GPS access is denied, this variable will keep null. */
     public Location currentLocation;

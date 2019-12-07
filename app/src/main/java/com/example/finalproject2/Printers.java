@@ -191,5 +191,128 @@ public class Printers {
                 " ics-print2\\aln-c144-bw\n" +
                 " ics-print2\\aln-c144-color\n");
         printerLocationMap.put("Allen Hall and Unit One LLC", AllenHall);
+
+        Pair<LatLng, String> Busey = new Pair<>(new LatLng(40.105854, -88.222920), "\n" +
+                " ics-print2\\beh-10-bw\n" +
+                " ics-print2\\beh-10-color\n" +
+                " ics-print2\\beh-l101-bw\n" +
+                " ics-print2\\beh-l101-color\nn");
+        printerLocationMap.put("Busey Evans Hall", Busey);
+
+        Pair<LatLng, String> Bousfield = new Pair<>(new LatLng(40.102003, -88.237866), "\n" +
+                " ics-print2\\bou-1029-bw\n" +
+                " ics-print2\\bou-1029-color\n");
+        printerLocationMap.put("Bousfield Hall", Bousfield);
+
+        Pair<LatLng, String> ClarkHall = new Pair<>(new LatLng(40.103847, -88.233927), "\n" +
+                " ics-print2\\clk-36-bw\n" +
+                " ics-print2\\clk-36-color\n");
+        printerLocationMap.put("Clark Hall", ClarkHall);
+
+        Pair<LatLng, String> DanielsHall = new Pair<>(new LatLng(40.111014, -88.221669), "\n" +
+                " ics-print2\\dan-322-bw\n" +
+                " ics-print2\\dan-322-color\n");
+        printerLocationMap.put("Daniels Hall", DanielsHall);
+
+        Pair<LatLng, String> FAR = new Pair<>(new LatLng(40.099434, -88.221124), "\n" +
+                " ics-print2\\far-9-bw\n" +
+                " ics-print2\\far-9-color\n" +
+                " ics-print2\\far-c102-bw\n" +
+                " ics-print2\\far-c102-color\n");
+        printerLocationMap.put("Florida Avenue Residence Hall", FAR);
+
+        Pair<LatLng, String> GoodwinGreen = new Pair<>(new LatLng(40.110004, -88.223632), "\n" +
+                " ics-print2\\gng-116-bw\n" +
+                " ics-print2\\gng-116-color\n");
+        printerLocationMap.put("Goodwin-Green University Apartment", GoodwinGreen);
+
+        Pair<LatLng, String> HopkinsHall = new Pair<>(new LatLng(40.111014, -88.221669), "\n" +
+                " ics-print2\\hop-116-bw\n" +
+                " ics-print2\\hop-116-color\n");
+        printerLocationMap.put("Hopkins Hall", HopkinsHall);
+
+        Pair<LatLng, String> LAR = new Pair<>(new LatLng(40.104330, -88.220336), "\n" +
+                " ics-print2\\lar-144-bw\n" +
+                " ics-print2\\lar-144-color\n");
+        printerLocationMap.put("Lincoln Avenue Residence (LAR)", LAR);
+
+        Pair<LatLng, String> NugentHall = new Pair<>(new LatLng(40.104174, -88.237242), "\n" +
+                " ics-print2\\nug-1132-bw\n" +
+                " ics-print2\\nug-1132-color\n");
+        printerLocationMap.put("Nugent Hall", NugentHall);
+
+        Pair<LatLng, String> OrchardDowns = new Pair<>(new LatLng(40.092415, -88.211066), "\n" +
+                " ics-print2\\od-2030a-bw\n" +
+                " ics-print2\\od-2030a-color\n");
+        printerLocationMap.put("Orchard Downs Apartment", OrchardDowns);
+
+        Pair<LatLng, String> PAR = new Pair<>(new LatLng(40.099958, -88.220789), "\n" +
+                " ics-print2\\par-104a-bw (virtual)\n" +
+                " ics-print2\\par-104a-color (virtual)\n");
+        printerLocationMap.put("Pennsylvania Avenue Residence", PAR);
+
+        Pair<LatLng, String> ScottHall = new Pair<>(new LatLng(40.102245, -88.236704), "\n" +
+                " ics-print2\\sct-116-bw\n" +
+                " ics-print2\\sct-116-color\n");
+        printerLocationMap.put("Scott Hall", ScottHall);
+
+        Pair<LatLng, String> Ikenberrysdrp = new Pair<>(new LatLng(40.104175, -88.235481), "\n" +
+                " ics-print2\\sdrp-1010-bw (virtual)\n" +
+                " ics-print2\\sdrp-1010-color (virtual)\n" +
+                " ics-print2\\sdrp-2010-bw\n" +
+                " ics-print2\\sdrp-2010-color\n");
+        printerLocationMap.put("Ikenberry Student Dining and Residential Programs Building", Ikenberrysdrp);
+
+        Pair<LatLng, String> ShermanHall = new Pair<>(new LatLng(40.107274, -88.232328), "\n" +
+                " ics-print2\\shm-40-bw (virtual)\n" +
+                " ics-print2\\shm-40-color (virtual)\n");
+        printerLocationMap.put("Sherman Hall", ShermanHall);
+
+        Pair<LatLng, String> SnyderHall = new Pair<>(new LatLng(40.102328, -88.235094), "\n" +
+                " ics-print2\\sny-116-bw\n" +
+                " ics-print2\\sny-116-color\n");
+        printerLocationMap.put("Snyder Hall", SnyderHall);
+
+        Pair<LatLng, String> TreleaseHall = new Pair<>(new LatLng(40.099119, -88.220352), "\n" +
+                " ics-print2\\tre-231-bw\n" +
+                " ics-print2\\tre-331-bw\n");
+        printerLocationMap.put("Trelease Hall(FAR)", TreleaseHall);
+
+        Pair<LatLng, String> TaftHall = new Pair<>(new LatLng(40.102002, -88.233655), "\n" +
+                " ics-print2\\tvd-1-bw\n" +
+                " ics-print2\\tvd-1-color\n");
+        printerLocationMap.put("Taft-Van Doren Residence Halls", TaftHall);
+
+        Pair<LatLng, String> WassajaHall = new Pair<>(new LatLng(40.103946, -88.238104), "\n" +
+                " ics-print2\\was-1101-bw\n" +
+                " ics-print2\\was-1101-color\n");
+        printerLocationMap.put("Wassaja Hall", WassajaHall);
+
+        Pair<LatLng, String> WardallHall = new Pair<>(new LatLng(40.109676, -88.221744), "\n" +
+                " ics-print2\\\\wr-102-bw\\n\" +\n" +
+                " ics-print2\\\\wr-102-color\\n");
+        printerLocationMap.put("Wardall Hall(ISR)", WardallHall);
+
+        Pair<LatLng, String> WestonHall = new Pair<>(new LatLng(40.103307, -88.235408), "\n" +
+                " ics-print2\\wsh-176-bw\n" +
+                " ics-print2\\wsh-176-color\n");
+        printerLocationMap.put("Weston Hall(Ike)", WestonHall);
+
+        Pair<LatLng, String> Ischool = new Pair<>(new LatLng(40.107768, -88.231478), "\n" +
+                " ischoolprint\\optimus");
+        printerLocationMap.put("ischool(Library and Information Science Building)", Ischool);
+
+        Pair<LatLng, String> VetMed = new Pair<>(new LatLng(40.092901, -88.220400), "\n" +
+                " vetprint\\Students2");
+        printerLocationMap.put("Vet-Med(Basic Science Building)", VetMed);
+
+        /**
+         * Some printer locations are not listed in U of I printing system. Following are added manually
+         * according to the actual printer locations.
+         */
+        Pair<LatLng, String> UGL = new Pair<>(new LatLng(40.104886, -88.227178), "\n" +
+                " UGL printer-bw @Upper Level\n" +
+                " UGL printer-color @Upper Level\n");
+        printerLocationMap.put("Undergraduate Library", UGL);
     }
 }
