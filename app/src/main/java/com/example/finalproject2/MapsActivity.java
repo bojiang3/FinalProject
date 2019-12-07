@@ -214,26 +214,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-            map.setMyLocationEnabled(true);
-
-            //Reference: StackOverFlow: https://stackoverflow.com/questions/14502102/zoom-on-current-user-location-displayed/14511032#14511032
-            LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-            Location setLocation = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-
-            if (setLocation == null) {
-                Criteria criteria = new Criteria();
-                criteria.setAccuracy(Criteria.ACCURACY_COARSE);
-
-                String provider = lm.getBestProvider(criteria, true);
-
-                setLocation = lm.getLastKnownLocation(provider);
-            }
-            lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-
-            currentLocation = setLocation;
-        }
+        currentLocation = getCurrentLocation();
 
 
         if (currentLocation != null) {
@@ -327,6 +308,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * Finished by Bojiang on 12/2.
      */
     public String getNearestPrinter() {
+        currentLocation = getCurrentLocation();
         double minDistance = 9999.00;
         String tmpPrinter = "";
         for (Map.Entry<String, Pair<LatLng, String>> entry : Printers.printerLocationMap.entrySet()) {
@@ -343,6 +325,31 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         }
         return tmpPrinter;
+    }
+
+    public Location getCurrentLocation() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            map.setMyLocationEnabled(true);
+
+            //Reference: StackOverFlow: https://stackoverflow.com/questions/14502102/zoom-on-current-user-location-displayed/14511032#14511032
+            LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+            Location setLocation = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+
+            if (setLocation == null) {
+                Criteria criteria = new Criteria();
+                criteria.setAccuracy(Criteria.ACCURACY_COARSE);
+
+                String provider = lm.getBestProvider(criteria, true);
+
+                setLocation = lm.getLastKnownLocation(provider);
+            }
+            lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+
+            currentLocation = setLocation;
+
+        }
+        return currentLocation;
     }
 
 }
